@@ -13,5 +13,11 @@ namespace WebProje.Models
         public string Biyografi { get; set; }
         public int? YarisGalibiyet { get; set; }
         public int? PodyumSayi { get; set; }
+        public string DogumYeri { get; set; }
+        public int? SampiyonlukSayisi { get; set; }
+        public int? EnHizliTur { get; set; }
+        public int? Pole { get; set; }
+        public string Ulke { get; set; }
+        public int? YarisSayisi { get; set; }
     }
 }
