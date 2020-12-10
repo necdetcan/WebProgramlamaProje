@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Index";
+
+
+}
+@{
+
+    string[] dizi = { "HAMILTON", "BOTTAS" };
+
+
 }
 <link href="~/css/pilotlar.css" rel="stylesheet" />
 
@@ -37,37 +45,99 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Soyad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Yas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Takim)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Biyografi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YarisGalibiyet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PodyumSayi)
-            </td>
-            <td>
-      
-        </td>
-        </tr>
-}
+
+        @foreach (var item in Model.Where(model => model.Soyad == "HAMILTON"))
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Yas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Takim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Biyografi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YarisGalibiyet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PodyumSayi)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-<asp:Content ID="1" ContentPlaceHolderID="TitleContent" runat="server">
-    <%= Html.Encode(item.Model.Text) %>
+<table class="table" id="pilot">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Takim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Biyografi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YarisGalibiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PodyumSayi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Where(model => model.Soyad == "BOTTAS"))
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Yas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Takim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Biyografi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YarisGalibiyet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PodyumSayi)
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<asp:Content ID="1" ContentPl)aceHolderID="TitleContent" runat="server">
+    <%= Html.Encode(item.Model.Text %>
 </asp:Content>
 
