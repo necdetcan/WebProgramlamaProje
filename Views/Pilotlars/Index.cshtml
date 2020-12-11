@@ -5,79 +5,106 @@
 
 
 }
-@{
-
-    string[] dizi = { "HAMILTON", "BOTTAS" };
-
-
-}
 <link href="~/css/pilotlar.css" rel="stylesheet" />
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table" id="pilot">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Soyad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Yas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Takim)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Biyografi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.YarisGalibiyet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PodyumSayi)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+@for (int i = 1; i < 21; i++)
+{
+<div class="container" >
+   
+    <div class="col-sm-8">
+        <table class="table" id="pilot"> 
 
-        @foreach (var item in Model.Where(model => model.Soyad == "HAMILTON"))
-        {
-            <tr>
-                <td>
+            <tbody>
 
-                    @Html.DisplayFor(modelItem => item.Soyad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Yas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Takim)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Biyografi)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.YarisGalibiyet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PodyumSayi)
-                </td>
-                <td>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<table class="table" id="pilot">
+                @foreach (var item in Model.Where(model => model.Id == i))
+                {
+
+
+
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Ad) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ad)
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Soyad) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Soyad)
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Yas) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Yas)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Takim) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Takim)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.SampiyonlukSayisi) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SampiyonlukSayisi)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.YarisSayisi) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YarisSayisi)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.YarisGalibiyet) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YarisGalibiyet)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.PodyumSayi) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PodyumSayi)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Pole) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pole)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.EnHizliTur) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EnHizliTur)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.DogumYeri) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DogumYeri)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(modelItem => item.Ulke) </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ulke)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+    <br /><br />
+}
+@*<table class="table" id="pilot">
     <thead>
         <tr>
             <th>
@@ -141,3 +168,4 @@
     <%= Html.Encode(item.Model.Text %>
 </asp:Content>
 
+*@
