@@ -7,165 +7,156 @@
 }
 <link href="~/css/pilotlar.css" rel="stylesheet" />
 
+<body>
+    <div class="container">
+        <div id="b1">
+            <p style="text-align:left">MERCEDES AMG-PETRONAS</p>
+            <div id="b125">
+                <img src="~/img/Hamilton.png" id="ham"><br />
+                <p style="text-align:left">Lewis HAMILTON</p>
+            </div>
+            <div id="b175">
+                <img src="~/img/Bottas.png" id="bot"><br />
+                 <p style="text-align:right">Valtteri BOTTAS</p>
+            </div>
+        </div>
+        <div id="b2">
+            <p style="text-align:left">SCUDERIA FERRARI</p>
+            <div id="b225">
+                <img src="~/img/Leclerc.png" id="lec"><br />
+                <p style="text-align:left">Charles LECLERC</p>
+            </div>
+            <div id="b275">
+                <img src="~/img/Vettel.png" id="vet"><br />
+                <p style="text-align:right">Sebastian VETTEL</p>
+            </div>
+        </div>
+        <div id="b3">
+            <p style="text-align:left">RED BULL RACING-HONDA</p>
+            <div id="b325">
+                <img src="~/img/Verstappen.png" id="ver"><br /><br />
+                <p style="text-align:left">Max VERSTAPPEN</p>
+            </div>
+            <div id="b375">
+                <img src="~/img/Albon.png" id="alb"><br />
+                <p style="text-align:right">Alexander ALBON</p>
+            </div>
+        </div>
+        <div id="b4"></div>
+        <div id="b5"></div>
+        <div id="b6"></div>
+        <div id="b7"></div>
+        <div id="b8"></div>
+        <div id="b9"></div>
+        <div id="b10"></div>
 
-@for (int i = 1; i < 21; i++)
-{
-<div class="container" >
-   
-    <div class="col-sm-8">
-        <table class="table" id="pilot"> 
 
-            <tbody>
-
-                @foreach (var item in Model.Where(model => model.Id == i))
-                {
-
-
-
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Ad) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ad)
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Soyad) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Soyad)
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Yas) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Yas)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Takim) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Takim)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.SampiyonlukSayisi) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SampiyonlukSayisi)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.YarisSayisi) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.YarisSayisi)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.YarisGalibiyet) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.YarisGalibiyet)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.PodyumSayi) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PodyumSayi)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Pole) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Pole)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.EnHizliTur) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EnHizliTur)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.DogumYeri) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DogumYeri)
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(modelItem => item.Ulke) </th>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ulke)
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-        </table>
     </div>
-</div>
-    <br /><br />
-}
-@*<table class="table" id="pilot">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Soyad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Yas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Takim)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Biyografi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.YarisGalibiyet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PodyumSayi)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+    <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
+    <div id="boxes">
 
-        @foreach (var item in Model.Where(model => model.Soyad == "BOTTAS"))
-        {
-            <tr>
-                <td>
 
-                    @Html.DisplayFor(modelItem => item.Soyad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Yas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Takim)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Biyografi)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.YarisGalibiyet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PodyumSayi)
-                </td>
-                <td>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<asp:Content ID="1" ContentPl)aceHolderID="TitleContent" runat="server">
-    <%= Html.Encode(item.Model.Text %>
-</asp:Content>
 
-*@
+
+        <div id="middlebox">
+            @for (int i = 1; i < 21; i++)
+            {
+                <table class="table">
+
+                    <tbody>
+
+                        @foreach (var item in Model.Where(model => model.Id == i))
+                        {
+
+
+
+                            <tr id="modelItem => item.Ad">
+                                <th>@Html.DisplayNameFor(modelItem => item.Ad) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ad)
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.Soyad) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Soyad)
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.Yas) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Yas)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.Takim) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Takim)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.SampiyonlukSayisi) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SampiyonlukSayisi)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.YarisSayisi) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.YarisSayisi)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.YarisGalibiyet) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.YarisGalibiyet)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.PodyumSayi) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PodyumSayi)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.Pole) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pole)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.EnHizliTur) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EnHizliTur)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.DogumYeri) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DogumYeri)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(modelItem => item.Ulke) </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ulke)
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+
+
+            }
+        </div>
+
+        <div id="rightbox">
+            
+        </div>
+    </div>
+</body>
+ 
