@@ -1,9 +1,124 @@
-﻿#pilot {
+﻿#rcorners2 {
     border-radius: 25px;
-    border-top: 2px solid #00D2BE;
-    border-right: 2px solid #00D2BE;
-    border-bottom: 2px solid #00D2BE;
+    border: 2px solid #73AD21;
     padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+
+#middlebox {
+    float: left;
     
-}body {
+    width: 70%;
+    
+}
+
+#rightbox {
+    float: right;
+    
+    width: 30%;
+    
+}
+#b1 {
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #00D2BE;
+    border-right: 3px solid #00D2BE;
+    border-bottom: 3px solid #00D2BE;
+    padding:20px;
+    width: 33.3%;
+    height: 225px;
+}
+#b125 {
+    float: left;
+    width: 50%;
+}
+#b175 {
+    float: right;
+    width: 50%;
+}
+#ham {
+    float:left;
+    width: 125px;
+    height: 125px;
+}
+#bot {
+    float:right;
+    width: 125px;
+    height: 125px;
+}
+#b225 {
+    float: left;
+    width: 50%;
+}
+
+#b275 {
+    float: right;
+    width: 50%;
+}
+
+#lec {
+    float: left;
+    width: 125px;
+    height: 125px;
+}
+
+#vet {
+    float: right;
+    width: 125px;
+    height: 125px;
+}
+#b325 {
+    float: left;
+    width: 50%;
+}
+
+#b375 {
+    float: right;
+    width: 50%;
+}
+
+#ver {
+    float: left;
+    width: 125px;
+    height: 125px;
+}
+
+#alb {
+    float: right;
+    width: 125px;
+    height: 125px;
+}
+#b2 {
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #DC0000;
+    border-right: 3px solid #DC0000;
+    border-bottom: 3px solid #DC0000;
+    padding: 20px;
+    width: 33.3%;
+    height: 225px;
+}
+#b3 {
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #1E41FF;
+    border-right: 3px solid #1E41FF;
+    border-bottom: 3px solid #1E41FF;
+    padding: 20px;
+    width: 33.3%;
+    height: 225px;
+}
+#b4 {
+    float: left;
+    
+    width: 33.3%;
+}
+
+
+
+
+    body {
+    
 }
