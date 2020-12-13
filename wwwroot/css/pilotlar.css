@@ -26,99 +26,143 @@
     border-top: 3px solid #00D2BE;
     border-right: 3px solid #00D2BE;
     border-bottom: 3px solid #00D2BE;
-    padding:20px;
+    padding: 10px;
     width: 33.3%;
-    height: 225px;
 }
-#b125 {
+#icsol {
     float: left;
-    width: 50%;
+    width: 45%;
 }
-#b175 {
+#icsag {
     float: right;
-    width: 50%;
+    width: 45%;
 }
-#ham {
-    float:left;
-    width: 125px;
-    height: 125px;
-}
-#bot {
-    float:right;
-    width: 125px;
-    height: 125px;
-}
-#b225 {
+#fotosol {
     float: left;
-    width: 50%;
+    height: 100%;
+    width: 100%;
+    transition: transform .2s;
 }
-
-#b275 {
+#fotosag {
     float: right;
-    width: 50%;
+    height: 100%;
+    width: 100%;
+    transition: transform .2s;
+}
+#fotosol:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
 }
 
-#lec {
-    float: left;
-    width: 125px;
-    height: 125px;
-}
-
-#vet {
-    float: right;
-    width: 125px;
-    height: 125px;
-}
-#b325 {
-    float: left;
-    width: 50%;
-}
-
-#b375 {
-    float: right;
-    width: 50%;
-}
-
-#ver {
-    float: left;
-    width: 125px;
-    height: 125px;
-}
-
-#alb {
-    float: right;
-    width: 125px;
-    height: 125px;
+#fotosag:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
 }
 #b2 {
+    
     float: left;
     border-radius: 25px;
     border-top: 3px solid #DC0000;
     border-right: 3px solid #DC0000;
     border-bottom: 3px solid #DC0000;
-    padding: 20px;
+    padding: 10px;
     width: 33.3%;
-    height: 225px;
 }
 #b3 {
-    float: left;
+    
+    float: right;
     border-radius: 25px;
     border-top: 3px solid #1E41FF;
     border-right: 3px solid #1E41FF;
     border-bottom: 3px solid #1E41FF;
-    padding: 20px;
+    padding: 10px;
     width: 33.3%;
-    height: 225px;
 }
 #b4 {
+    margin-top:20px;
     float: left;
-    
+    border-radius: 25px;
+    border-top: 3px solid #FF8700;
+    border-right: 3px solid #FF8700;
+    border-bottom: 3px solid #FF8700;
+    padding: 10px;
     width: 33.3%;
 }
+#b5 {
+    margin-top: 20px;
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #FFF500;
+    border-right: 3px solid #FFF500;
+    border-bottom: 3px solid #FFF500;
+    padding: 10px;
+    width: 33.3%;
+}
+#b6 {
+    margin-top: 20px;
+    float: right;
+    border-radius: 25px;
+    border-top: 3px solid #F596C8;
+    border-right: 3px solid #F596C8;
+    border-bottom: 3px solid #F596C8;
+    padding: 10px;
+    width: 33.3%;
+}
+#b7 {
+    margin-top: 20px;
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #960000;
+    border-right: 3px solid #960000;
+    border-bottom: 3px solid #960000;
+    padding: 10px;
+    width: 33.3%;
+}
+#b8 {
+    margin-top: 20px;
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #C8C8C8;
+    border-right: 3px solid #C8C8C8;
+    border-bottom: 3px solid #C8C8C8;
+    padding: 5px;
+    width: 33.3%;
+}
+
+#b9 {
+    margin-top: 20px;
+    float: right;
+    border-radius: 25px;
+    border-top: 3px solid #787878;
+    border-right: 3px solid #787878;
+    border-bottom: 3px solid #787878;
+    padding:10px;
+    width: 33.3%;
+}
+#b10 {
+    margin-top: 20px;
+    margin-left: 33.3%;
+    margin-right: 33.3%;
+    margin-bottom:70px;
+    float: left;
+    border-radius: 25px;
+    border-top: 3px solid #0082FA;
+    border-right: 3px solid #0082FA;
+    border-bottom: 3px solid #0082FA;
+    padding: 10px;
+    width: 33.3%;
+}
+
+
+
+
 
 
 
 
     body {
+        font-family: 'Russo One', sans-serif;
     
 }
