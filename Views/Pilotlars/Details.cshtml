@@ -4,57 +4,190 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="~/css/pilotlar.css" rel="stylesheet" />
 
-<div>
-    <h4>Pilotlar</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Soyad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Soyad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Yas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Yas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Takim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Takim)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Biyografi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Biyografi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.YarisGalibiyet)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.YarisGalibiyet)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PodyumSayi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PodyumSayi)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<body id="details">
+    <div id="govde">
+        <div class="container">
+            <br />
+            <div id="c1">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        AD
+                        <br />
+
+
+                    </dt>
+
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Ad)
+                        <br />
+
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        SOYAD
+                        <br />
+
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Soyad)
+                        <br />
+
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        YAŞ
+                        <br />
+
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Yas)
+                        <br />
+
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        TAKIM
+                        <br />
+
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Takim)
+                        <br />
+
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        YARIŞ SAYISI
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.YarisSayisi)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        YARIŞ GALİBİYETİ
+                        <br />
+                        <br />
+
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.YarisGalibiyet)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        PODYUM SAYISI
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.PodyumSayi)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        POLE SAYISI
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Pole)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        EN HIZLI TUR SAYISI
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.EnHizliTur)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        DOĞUM YERİ
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DogumYeri)
+                        <br />
+                        <br />
+
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        ÜLKE
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Ulke)
+                        <br />
+                        <br />
+
+                    </dd>
+                    <dt class="col-sm-2">
+                        BİYOGRAFİ
+                        <br />
+                        <br />
+
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Biyografi)
+                        <br />
+                        <br />
+
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="c2">
+
+                @if (Model.Id == 1)
+                {
+
+                    <img src="~/img/HamTag.png" id="fotoTag" class="responsive" />
+                    <img src="~/img/Hamilton.png" id="foto" class="responsive">
+
+                    <img src="~/img/Mercedes.jpg" id="foto" class="responsive" /> <br />
+
+
+                    <img src="~/img/HamHel.png" id="fotoHel" class="responsive" />
+
+
+                    <br />
+
+                }
+
+            </div>
+        </div>
+        <br /><br /> <br /><br /> <br /><br />
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
