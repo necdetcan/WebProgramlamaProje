@@ -1,0 +1,96 @@
+﻿@model WebProje.Models.Takimlar
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="~/css/pilotlar.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TakimAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TakimAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TakimMerkezi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TakimMerkezi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TakimPatronu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TakimPatronu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeknikSef)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeknikSef)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sasi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sasi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GucUnitesi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GucUnitesi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KurulusTarihi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KurulusTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DunyaSampiyonluklari)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DunyaSampiyonluklari)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnIyiSonuc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnIyiSonuc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PolePozisyonu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PolePozisyonu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnHizliTur)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnHizliTur)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
