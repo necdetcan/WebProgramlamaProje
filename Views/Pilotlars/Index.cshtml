@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<WebProje.Models.Pilotlar>
 
 @{
-    ViewData["Title"] = "Index";
+    
 
 
 }
@@ -15,183 +15,189 @@
 </head>
 
 <body>
-    <br />
-    <div id="b0">
-        <h2>2020 FORMULA 1 PİLOTLARI</h2>
-    </div>
-    <br /> <br /> <br /> <br />
+    
     <div id="govde">
+        <div id="b0">
+            <h1>2020 FORMULA 1 TAKIMLARI</h1>
+        </div>
+        <br /><br /><br /><br /><br /><br />
         <div class="container">
             <br />
 
 
 
+            <div id="pilotrow">
+                <div id="b1">
+                    <p style="text-align:left">MERCEDES AMG-PETRONAS</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=1>
 
-            <div id="b1">
-                <p style="text-align:left">MERCEDES AMG-PETRONAS</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=1>
+                            <img src="~/img/Hamilton.png" id="fotosol" class="responsive">
+                        </a>
+                        <br />
 
-                        <img src="~/img/Hamilton.png" id="fotosol" class="responsive">
-                    </a>
-                    <br />
+                        <p style="text-align:left">Lewis HAMILTON</p>
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=2>
+                            <img src="~/img/Bottas.png" id="fotosag" class="responsive">
+                        </a><br />
+                        <p style="text-align:right">Valtteri BOTTAS</p>
 
-                    <p style="text-align:left">Lewis HAMILTON</p>
+                    </div>
                 </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=2>
-                        <img src="~/img/Bottas.png" id="fotosag" class="responsive">
-                    </a><br />
-                    <p style="text-align:right">Valtteri BOTTAS</p>
+                <div id="b2">
+                    <p style="text-align:left">SCUDERIA FERRARI</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=3>
+                            <img src="~/img/Leclerc.png" id="fotosol">
+                        </a><br />
+                        <p style="text-align:left">Charles LECLERC</p>
+
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=4>
+                            <img src="~/img/Vettel.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Sebastian VETTEL</p>
+
+                    </div>
+                </div>
+                <div id="b3">
+                    <p style="text-align:left">RED BULL RACING - HONDA</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=5>
+                            <img src="~/img/Verstappen.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Max VERSTAPPEN</p>
+
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=6>
+                            <img src="~/img/Albon.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Alexander ALBON</p>
+
+                    </div>
+                </div>
+            </div>
+            <div id="pilotrow">
+                <div id="b4">
+                    <p style="text-align:left">MCLAREN - RENAULT</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=7>
+                            <img src="~/img/Sainz.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Carlos SAINZ</p>
+
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=8>
+                            <img src="~/img/Norris.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Lando NORRIS</p>
+
+                    </div>
+                </div>
+                <div id="b5">
+                    <p style="text-align:left">RENAULT</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=9>
+                            <img src="~/img/Ricciardo.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Daniel RICCIARDO</p>
+
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=10>
+                            <img src="~/img/Ocon.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Esteban OCON</p>
+
+                    </div>
+                </div>
+                <div id="b6">
+
+                    <p style="text-align:left">RACING POINT - MERCEDES</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=11>
+                            <img src="~/img/Perez.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Sergio PEREZ</p>
+
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=12>
+                            <img src="~/img/Stroll.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Lance STROLL</p>
+                    </div>
 
                 </div>
             </div>
-            <div id="b2">
-                <p style="text-align:left">SCUDERIA FERRARI</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=3>
-                        <img src="~/img/Leclerc.png" id="fotosol">
-                    </a><br />
-                    <p style="text-align:left">Charles LECLERC</p>
-
+            <div id="pilotrow">
+                <div id="b7">
+                    <p style="text-align:left">ALFA ROMEO - FERRARI</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=14>
+                            <img src="~/img/Raikkonen.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Kimi RAIKKONNEN</p>
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=13>
+                            <img src="~/img/Giovinazzi.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Antonio Giovinazzi</p>
+                    </div>
                 </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=4>
-                        <img src="~/img/Vettel.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Sebastian VETTEL</p>
+                <div id="b8">
+                    <p style="text-align:left">HAAS - FERRARI</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=15>
+                            <img src="~/img/Magnussen.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Kevin MAGNUSSEN</p>
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=16>
+                            <img src="~/img/Grosjean.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Romain GROSJEAN</p>
+                    </div>
+                </div>
+                <div id="b9">
+                    <p style="text-align:left">ALPHA TAURI - HONDA</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=17>
+                            <img src="~/img/Gasly.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">Pierre GASLY</p>
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=18>
 
+                            <img src="~/img/Kvyat.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Daniil KVYAT</p>
+                    </div>
                 </div>
             </div>
-            <div id="b3">
-                <p style="text-align:left">RED BULL RACING - HONDA</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=5>
-                        <img src="~/img/Verstappen.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Max VERSTAPPEN</p>
-
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=6>
-                        <img src="~/img/Albon.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Alexander ALBON</p>
-
-                </div>
-            </div>
-
-            <div id="b4">
-                <p style="text-align:left">MCLAREN - RENAULT</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=7>
-                        <img src="~/img/Sainz.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Carlos SAINZ</p>
-
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=8>
-                        <img src="~/img/Norris.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Lando NORRIS</p>
-
-                </div>
-            </div>
-            <div id="b5">
-                <p style="text-align:left">RENAULT</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=9>
-                        <img src="~/img/Ricciardo.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Daniel RICCIARDO</p>
-
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=10>
-                        <img src="~/img/Ocon.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Esteban OCON</p>
-
-                </div>
-            </div>
-            <div id="b6">
-
-                <p style="text-align:left">RACING POINT - MERCEDES</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=11>
-                        <img src="~/img/Perez.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Sergio PEREZ</p>
-
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=12>
-                        <img src="~/img/Stroll.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Lance STROLL</p>
-                </div>
-
-            </div>
-            <div id="b7">
-                <p style="text-align:left">ALFA ROMEO - FERRARI</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=14>
-                        <img src="~/img/Raikkonen.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Kimi RAIKKONNEN</p>
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=13>
-                        <img src="~/img/Giovinazzi.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Antonio Giovinazzi</p>
-                </div>
-            </div>
-            <div id="b8">
-                <p style="text-align:left">HAAS - FERRARI</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=15>
-                        <img src="~/img/Magnussen.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Kevin MAGNUSSEN</p>
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=16>
-                        <img src="~/img/Grosjean.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Romain GROSJEAN</p>
-                </div>
-            </div>
-            <div id="b9">
-                <p style="text-align:left">ALPHA TAURI - HONDA</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=17>
-                        <img src="~/img/Gasly.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">Pierre GASLY</p>
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=18>
-
-                        <img src="~/img/Kvyat.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Daniil KVYAT</p>
-                </div>
-            </div>
-            <div id="b10">
-                <p style="text-align:left">WILLIAMS - MERCEDES</p>
-                <div id="icsol">
-                    <a asp-action="Details" asp-route-id=19>
-                        <img src="~/img/Russell.png" id="fotosol">
-                    </a><br /><br />
-                    <p style="text-align:left">George Russell</p>
-                </div>
-                <div id="icsag">
-                    <a asp-action="Details" asp-route-id=20>
-                        <img src="~/img/Latifi.png" id="fotosag">
-                    </a><br />
-                    <p style="text-align:right">Nicholas LATIFI</p>
+            <div id="pilotrow">
+                <div id="b10">
+                    <p style="text-align:left">WILLIAMS - MERCEDES</p>
+                    <div id="icsol">
+                        <a asp-action="Details" asp-route-id=19>
+                            <img src="~/img/Russell.png" id="fotosol">
+                        </a><br /><br />
+                        <p style="text-align:left">George Russell</p>
+                    </div>
+                    <div id="icsag">
+                        <a asp-action="Details" asp-route-id=20>
+                            <img src="~/img/Latifi.png" id="fotosag">
+                        </a><br />
+                        <p style="text-align:right">Nicholas LATIFI</p>
+                    </div>
                 </div>
             </div>
 
