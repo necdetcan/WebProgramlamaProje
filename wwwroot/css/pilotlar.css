@@ -260,6 +260,12 @@
     height:100%;
     margin-top:20px;
 }
+#pilotrow {
+    width: 100%;
+    float: left;
+    height: 100%;
+    margin-top: 20px;
+}
 #b0 {
     background-color:white;
     float: left;
