@@ -10,87 +10,424 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="~/css/pilotlar.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
 
 </head>
-<body>
+<body id="details">
+    <div id="govdeTakim">
+        <div class="container">
+            <br />
+            <div id="solTakim">
+                <div id="solust">
+                    @if (Model.Id == 1)
+                    {
+                        <img src="~/img/LogoMercedes.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 2)
+                    {
+                        <img src="~/img/LogoFerrari.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 3)
+                    {
+                        <img src="~/img/LogoRedBull.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 4)
+                    {
+                        <img src="~/img/LogoMcLaren.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 5)
+                    {
+                        <img src="~/img/LogoRenault.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 6)
+                    {
+                        <img src="~/img/LogoRacingPoint.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 7)
+                    {
+                        <img src="~/img/LogoAlfaRomeo.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 8)
+                    {
+                        <img src="~/img/LogoHaas.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 9)
+                    {
+                        <img src="~/img/LogoAlphaTauri.jpg" id="logoSol" class="responsive" />
+                    }
+                    @if (Model.Id == 10)
+                    {
+                        <img src="~/img/LogoWilliams.jpg" id="logoSol" class="responsive" />
+                    }
+                </div>
+                
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Takım Adı:
+                    </dt>
+                    
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TakimAdi)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Takım Merkezi:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TakimMerkezi)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Takım Patronu:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TakimPatronu)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Teknik Şef:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TeknikSef)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Şasi:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Sasi)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Güç Ünitesi:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.GucUnitesi)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Kuruluş Tarihi:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.KurulusTarihi)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Dünya Şampiyonlukları:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.DunyaSampiyonluklari)
+                    </dd>
+                    <dt class="col-sm-4">
+                        En İyi Sonuç:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.EnIyiSonuc)
+                    </dd>
+                    <dt class="col-sm-4">
+                        Pole Pozisyonu:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.PolePozisyonu)
+                    </dd>
+                    <dt class="col-sm-4">
+                        En Hızlı Tur:
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.EnHizliTur)
+                    </dd>
+                </dl>
+            </div>
+            <div id="sagtakimbuyuk">
+                @if (Model.Id == 1)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=1 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Hamilton.png" class="responsive" id="tl" />
+                                </a><br />
+                                Lewis HAMILTON
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=2 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Bottas.png" class="responsive" id="tr" />
+                                </a><br />Valtteri BOTTAS
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Toto.jpg" id="tm" class="responsive" /><br />
+                        <h3>Toto WOLFF</h3>
+                    </div>
+                }
+                @if (Model.Id == 2)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=3 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Leclerc.png" class="responsive" id="tl" />
+                                </a><br />
+                                Charles LECLERC
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=4 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Vettel.png" class="responsive" id="tr" />
+                                </a><br />Sebastian VETTEL
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Binotto.jpg" id="tm" class="responsive" /><br />
+                        <h3>Mattia BINOTTO</h3>
+                    </div>
+                }
+                @if (Model.Id == 3)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=5 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Verstappen.png" class="responsive" id="tl" />
+                                </a><br />
+                                Max VERSTAPPEN
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=6 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Albon.png" class="responsive" id="tr" />
+                                </a><br />Alexander ALBON
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Horner.jpg" id="tm" class="responsive" /><br />
+                        <h3>Christian HORNER</h3>
+                    </div>
+                }
+                @if (Model.Id == 4)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=7 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Sainz.png" class="responsive" id="tl" />
+                                </a><br />
+                                Carlos SAINZ
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=8 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Norris.png" class="responsive" id="tr" />
+                                </a><br />Lando NORRIS
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Seidl.jpg" id="tm" class="responsive" /><br />
+                        <h3>Andres SEIDL</h3>
+                    </div>
+                }
+                @if (Model.Id == 5)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=9 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Ricciardo.png" class="responsive" id="tl" />
+                                </a><br />
+                                Daniel RICCIARDO
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=10 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Ocon.png" class="responsive" id="tr" />
+                                </a><br />Esteban OCON
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Cyril.jpg" id="tm" class="responsive" /><br />
+                        <h3>Cyril  ABITEBOUL</h3>
+                    </div>
+                }
+                @if (Model.Id == 6)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=11 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Perez.png" class="responsive" id="tl" />
+                                </a><br />
+                                Sergio PEREZ
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=12 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Stroll.png" class="responsive" id="tr" />
+                                </a><br />Lance STROLL
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Szaufner.jpg" id="tm" class="responsive" /><br />
+                        <h3>Otmar SZAUFNER</h3>
+                    </div>
+                }
+                @if (Model.Id == 7)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=13 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Giovinazzi.png" class="responsive" id="tl" />
+                                </a><br />
+                                Antonio GIOVINAZZI
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=14 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Raikkonen.png" class="responsive" id="tr" />
+                                </a><br />Kimi RAIKKONNEN
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Vasseur.jpg" id="tm" class="responsive" /><br />
+                        <h3>Frédéric VASSEUR</h3>
+                    </div>
+                }
+                @if (Model.Id == 8)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=15 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Magnussen.png" class="responsive" id="tl" />
+                                </a><br />
+                                Kevin MAGNUSSEN
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=16 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Grosjean.png" class="responsive" id="tr" />
+                                </a><br />Romain GROSJEAN
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Steiner.jpg" id="tm" class="responsive" /><br />
+                        <h3>Gunther STEINER</h3>
+                    </div>
+                }
+                @if (Model.Id == 9)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=17 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Gasly.png" class="responsive" id="tl" />
+                                </a><br />
+                                Pierre GASLY
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=18 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Kvyat.png" class="responsive" id="tr" />
+                                </a><br />Daniil KVYAT
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Tost.jpg" id="tm" class="responsive" /><br />
+                        <h3>Franz TOST</h3>
+                    </div>
+                }
+                @if (Model.Id == 10)
+                {
+                    <div id="sagTakim">
+                        <div id="sagust">
+                            <h2>PİLOTLAR</h2>
+                        </div>
+                        <div id="sagalt">
+                            <div id="sagicsol">
+                                <a asp-route-id=19 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Russell.png" class="responsive" id="tl" />
+                                </a><br />
+                                George RUSSELL
+                            </div>
+                            <div id="sagicsag">
+                                <a asp-route-id=20 asp-controller="Pilotlars" asp-action="Details">
+                                    <img src="~/img/Latifi.png" class="responsive" id="tr" />
+                                </a><br />Nicholas LATIFI
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sag2alt">
+                        <div id="sagust">
+                            <h2>TAKIM PATRONU</h2>
+                        </div>
+                        <br />
+                        <img src="~/img/Roberts.jpg" id="tm" class="responsive" /><br />
+                        <h3>Simon ROBERTS</h3>
+                    </div>
+                }
 
-<div>
-   
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TakimAdi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TakimAdi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TakimMerkezi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TakimMerkezi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TakimPatronu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TakimPatronu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TeknikSef)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TeknikSef)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sasi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sasi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GucUnitesi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GucUnitesi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KurulusTarihi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KurulusTarihi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DunyaSampiyonluklari)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DunyaSampiyonluklari)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnIyiSonuc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnIyiSonuc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PolePozisyonu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PolePozisyonu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnHizliTur)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnHizliTur)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+            </div>
+        </div></div>
 </body>
 </html>
