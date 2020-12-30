@@ -1,0 +1,211 @@
+﻿@model IEnumerable<WebProje.Models.PuanDurumu>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="~/css/pilotlar.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body id="details">
+    <div id="govde">
+        <div class="container">
+            <br />
+            <div id="puansol">
+                <div id="tarihsolust">
+                    <div id="puanpuansolic"><h2>PİLOTLAR SIRALAMASI</h2></div>
+                    
+                </div>
+                <table class="table">
+                    
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            @if (item.Pilot != null)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <div id="puansolic">
+
+                                            @if (item.Pilot == "Lewis HAMILTON")
+                                            {
+                                                <img src="~/img/Hamilton.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Valtteri BOTTAS")
+                                            {
+                                                <img src="~/img/Bottas.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Charles LECLERC")
+                                            {
+                                                <img src="~/img/Leclerc.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Sebastian VETTEL")
+                                            {
+                                                <img src="~/img/Vettel.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Max VERSTAPPEN")
+                                            {
+                                                <img src="~/img/Verstappen.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Alexander ALBON")
+                                            {
+                                                <img src="~/img/Albon.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Carlos SAINZ")
+                                            {
+                                                <img src="~/img/Sainz.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Lando NORRIS")
+                                            {
+                                                <img src="~/img/Norris.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Daniel RICCIARDO")
+                                            {
+                                                <img src="~/img/Ricciardo.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Esteban OCON")
+                                            {
+                                                <img src="~/img/Ocon.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Sergio PEREZ")
+                                            {
+                                                <img src="~/img/Perez.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Lance STROLL")
+                                            {
+                                                <img src="~/img/Stroll.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Kimi RAIKKONEN")
+                                            {
+                                                <img src="~/img/Raikkonen.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Antonio GIOVINAZZI")
+                                            {
+                                                <img src="~/img/Giovinazzi.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Romain GROSJEAN")
+                                            {
+                                                <img src="~/img/Grosjean.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Kevin MAGNUSSEN")
+                                            {
+                                                <img src="~/img/Magnussen.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Pierre GASLY")
+                                            {
+                                                <img src="~/img/Gasly.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Daniil KVYAT")
+                                            {
+                                                <img src="~/img/Kvyat.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "George RUSSELL")
+                                            {
+                                                <img src="~/img/Russell.png" class="responsive" id="puanfoto" />
+                                            }
+                                            @if (item.Pilot == "Nicholas LATIFI")
+                                            {
+                                                <img src="~/img/Latifi.png" class="responsive" id="puanfoto" />
+                                            }
+                                        </div>
+                                        <div id="puansagic">
+                                            @Html.DisplayFor(modelItem => item.Pilot)
+                                        </div>
+                                                 
+
+                                        </td>
+
+                                    <td>
+                                        <div id="puansagic">
+                                            @Html.DisplayFor(modelItem => item.Puan)
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                </table>
+            </div>
+            <div id="puansag">
+                <div id="tarihsolust">
+                    <div id="puanpuansolic"><h2>TAKIMLAR SIRALAMASI</h2></div>
+
+                </div>
+                <table class="table">
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            @if (item.Takim != null)
+                            {
+                                <tr>
+                                    <td>
+                                        <div id="puansolic">
+
+                                            @if (item.Takim == "Mercedes AMG-PETRONAS")
+                                            {
+                                                <img src="~/img/Mercedes.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Red Bull Racing")
+                                            {
+                                                <img src="~/img/RedBull.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "McLaren")
+                                            {
+                                                <img src="~/img/McLaren.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Racing Point")
+                                            {
+                                                <img src="~/img/RacingPoint.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Renault")
+                                            {
+                                                <img src="~/img/Renault.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Scuderia Ferrari")
+                                            {
+                                                <img src="~/img/Ferrari.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "AlphaTauri")
+                                            {
+                                                <img src="~/img/AlphaTauri.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Alfa Romeo Racing")
+                                            {
+                                                <img src="~/img/AlfaRomeo.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Haas F1 Team")
+                                            {
+                                                <img src="~/img/Haas.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            @if (item.Takim == "Williams")
+                                            {
+                                                <img src="~/img/Williams.png" class="responsive" id="puanfotologo" />
+                                            }
+                                            </div>
+                                            @Html.DisplayFor(modelItem => item.Takim)
+
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Puan)
+                                    </td>
+
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
