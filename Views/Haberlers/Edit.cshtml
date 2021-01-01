@@ -1,0 +1,70 @@
+﻿@model WebProje.Models.Haberler
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Haberler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="HaberTr" class="control-label"></label>
+                <input asp-for="HaberTr" class="form-control" />
+                <span asp-validation-for="HaberTr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HaberEng" class="control-label"></label>
+                <input asp-for="HaberEng" class="form-control" />
+                <span asp-validation-for="HaberEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Begeni" class="control-label"></label>
+                <input asp-for="Begeni" class="form-control" />
+                <span asp-validation-for="Begeni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dislike" class="control-label"></label>
+                <input asp-for="Dislike" class="form-control" />
+                <span asp-validation-for="Dislike" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarih" class="control-label"></label>
+                <input asp-for="Tarih" class="form-control" />
+                <span asp-validation-for="Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Baslik" class="control-label"></label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaslikEng" class="control-label"></label>
+                <input asp-for="BaslikEng" class="form-control" />
+                <span asp-validation-for="BaslikEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

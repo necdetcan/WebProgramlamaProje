@@ -1,0 +1,79 @@
+﻿@model WebProje.Models.Haberler
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="~/css/pilotlar.css" rel="stylesheet" />
+    <script type="text/javascript">
+         
+           
+             var like = '@Model.Begeni';
+             var dislike = '@Model.Dislike';
+            
+    
+    function onClick() {
+        like += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+             };
+        
+    </script>
+</head>
+
+
+    <body id="details">
+        <div id="govdeTakim">
+            <div class="container">
+                <br />
+                <div id="haberdetay">
+
+
+                    <div id="haberdetaysolust">
+                        @if (Model.Id == 1)
+                        {
+                            <img src="~/img/Haber1.jpg" id="haberfoto">
+                        }
+                        @if (Model.Id == 2)
+                        {
+                            <img src="~/img/Haber2.jpg" id="haberfoto">
+                        }
+                        @if (Model.Id == 3)
+                        {
+                            <img src="~/img/Haber3.jpg" id="haberfoto">
+                        }
+                        @if (Model.Id == 4)
+                        {
+                            <img src="~/img/Haber4.jpg" id="haberfoto">
+                        }
+                        @if (Model.Id == 5)
+                        {
+                            <img src="~/img/Haber5.jpg" id="haberfoto">
+                        }
+                        @if (Model.Id == 6)
+                        {
+                            <img src="~/img/Haber6.jpg" id="haberfoto">
+                        }
+
+                        @Html.DisplayFor(model => model.Tarih)
+                    </div>
+                    <div id="haberdetaysolustust"><h2>@Html.DisplayFor(model => model.Baslik)</h2></div>
+                    @Html.DisplayFor(model => model.HaberTr)
+                </div>
+                <div id="haberdetaysag">
+                    <button type="button" onClick="onClick()">Click me</button>
+                    <p>Clicks: <a id="clicks">0</a></p>
+                </div>
+                
+                </div></div>
+
+    </body>
+</html>
