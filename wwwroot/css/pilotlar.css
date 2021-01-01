@@ -1,5 +1,7 @@
 ﻿
 
+
+
 #govde {
     float: left;
     font-family: 'Russo One', sans-serif;
@@ -652,9 +654,164 @@ height:80%;
     margin-bottom:150px;
 }
 
-
+#bayrak{
+    float:left;
+    width:50%;
+    height:50%;
+}
 
 body {
     background-color: #ECE7E6;
-    #panel, #flip
+    
+}
+.panel {
+    width: 300px;
+    float: left;
+    height: 550px;
+    background: #d9dada;
+    position: relative;
+    left: -300px;
+}
+
+.slider-arrow {
+    padding: 5px;
+    width: 10px;
+    float: left;
+    background: #d9dada;
+    font: 400 12px Arial, Helvetica, sans-serif;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    left: -300px;
+}
+#takvimust{
+    float:left;
+    width:100%;
+    height:100%;
+}
+#takvimsol{
+    margin-top:20px;
+    border-radius:25px;
+    float:left;
+    width:40%;
+    height:100%;
+    padding:10px;
+    border-top:3px solid #FF0000;
+    border-right:3px solid #FF0000;
+    border-bottom:3px solid #FF0000;
+    
+
+}
+#takvimsag{
+    padding:40px;
+    float:right;
+    width:60%;
+    height:100%;
+}
+#takvimsolic{
+    float:left;
+    width:30%;
+    height:100%;
+
+}
+#takvimsagic {
+    float: right;
+    width: 70%;
+    height: 100%;
+}
+#takvimsagic1{
+    float:left;
+    width:50%;
+    height:100%;
+}
+#takvimsagic2 {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+#panel, #flip {
+    border-radius:25px;
+    padding: 5px;
+   border-left:3px solid #FF0000;
+   border-bottom:3px solid #FF0000;
+}
+
+#panel {
+    
+    display: none;
+}
+#habersol{
+    padding:25px;
+    float:left;
+    width:60%;
+    height:100%;
+    border-radius:25px;
+    border-right:3px solid #FF0000;
+    border-top:3px solid #FF0000;
+    border-bottom:3px solid #FF0000;
+   
+}
+#habersag {
+    padding: 25px;
+    float: right;
+    width: 40%;
+    height: 100%;
+    border-radius: 25px;
+    border-right: 3px solid #FF0000;
+    border-top: 3px solid #FF0000;
+    border-bottom: 3px solid #FF0000;
+}
+#habersag1 {
+  padding:15px;
+    float: left;
+    width: 100%;
+    height: 33.3%;
+    border-bottom: 3px solid #FF0000;
+}
+#habersagust {
+    font-family: 'Russo One', sans-serif;
+    float: left;
+    width: 100%;
+    height: 100%;
+    border-bottom: 5px solid #000000;
+}
+
+#haberfoto{
+    float:left;
+    width:100%;
+    height:100%;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.carousel-caption{
+    background-color:#FF0000;
+}
+#haberdetaysolust{
+    float:left;
+    width:100%;
+    height:100%;
+}
+#haberdetaysolustust {
+    font-family: 'Russo One', sans-serif;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+#haberdetay {
+    float: left;
+    border-radius: 50px;
+    border-top: 3px solid #FF0000;
+    border-right: 3px solid #FF0000;
+    border-bottom: 3px solid #FF0000;
+    width: 90%;
+    padding: 30px;
+}
+#haberdetaysag {
+    float: right;
+    
+    width: 10%;
+    padding: 30px;
 }
