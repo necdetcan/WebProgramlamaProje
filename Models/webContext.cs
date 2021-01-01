@@ -22,7 +22,12 @@ namespace WebProje.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Haberler> Haberler { get; set; }
         public virtual DbSet<Pilotlar> Pilotlar { get; set; }
+        public virtual DbSet<PuanDurumu> PuanDurumu { get; set; }
+        public virtual DbSet<Takimlar> Takimlar { get; set; }
+        public virtual DbSet<Takvim> Takvim { get; set; }
+        public virtual DbSet<Tarihce> Tarihce { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -133,6 +138,29 @@ namespace WebProje.Models
                 entity.Property(e => e.UserName).HasMaxLength(256);
             });
 
+            modelBuilder.Entity<Haberler>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Baslik).HasColumnType("text");
+
+                entity.Property(e => e.BaslikEng)
+                    .HasColumnName("BaslikENG")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.HaberEng)
+                    .HasColumnName("HaberENG")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.HaberTr)
+                    .HasColumnName("HaberTR")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.Tarih).HasColumnType("datetime");
+            });
+
             modelBuilder.Entity<Pilotlar>(entity =>
             {
                 entity.Property(e => e.Id)
@@ -143,8 +171,10 @@ namespace WebProje.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Biyografi)
-                    .HasMaxLength(255)
+                entity.Property(e => e.Biyografi).HasColumnType("text");
+
+                entity.Property(e => e.DogumYeri)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Soyad)
@@ -154,6 +184,186 @@ namespace WebProje.Models
                 entity.Property(e => e.Takim)
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Ulke)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<PuanDurumu>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Pilot)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Takim)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Takimlar>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.EnIyiSonuc)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.GucUnitesi)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.KurulusTarihi)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Sasi)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TakimAdi)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TakimMerkezi)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TakimPatronu)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TeknikSef)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Takvim>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Altinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Besinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Birinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Dokuzuncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Dorduncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EnHizliTur)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ikinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnAltinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnBesinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnBirinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnDokuzuncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnDorduncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnIkinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnSekizinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnUcuncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OnYedinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Onuncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PistAdi)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Sekizinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tarih).HasColumnType("date");
+
+                entity.Property(e => e.Ucuncu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Ulke)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.YarisAdi)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Yedinci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Yirminci)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Tarihce>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Tarihce1)
+                    .HasColumnName("Tarihce")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.TarihceEng)
+                    .HasColumnName("TarihceENG")
+                    .HasColumnType("text");
             });
 
             OnModelCreatingPartial(modelBuilder);
