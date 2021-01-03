@@ -1,9 +1,20 @@
 ﻿@model IEnumerable<WebProje.Models.Takimlar>
 
-@{
-    
-}
 
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+}
 <!DOCTYPE html>
 
 <html>
@@ -15,11 +26,14 @@
     <link href="~/css/pilotlar.css" rel="stylesheet" />
 </head>
 <body id="takimbody">
-
+    <form id="cultureForm" asp-action="Index">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
 
     <div id="govde">
         <div id="b0">
-            <h1>2020 FORMULA 1 TAKIMLARI</h1>
+            <h1>@Localizer["2020 FORMULA 1 TAKIMLARI"]</h1>
         </div>
         <br /><br /><br /><br /><br /><br />
         <div class="container">
@@ -27,7 +41,7 @@
 
             <div id="takimrow">
                 <div id="a0">
-                    <a asp-action="Details" asp-route-id=1>
+                    <a asp-action="Details" asp-route-id=1 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">MERCEDES AMG-PETRONAS</div>
@@ -44,7 +58,7 @@
 
 
                 <div id="a1">
-                    <a asp-action="Details" asp-route-id=2>
+                    <a asp-action="Details" asp-route-id=2 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">SCUDERIA FERRARI</div>
@@ -60,7 +74,7 @@
             </div>
             <div id="takimrow">
                 <div id="a2">
-                    <a asp-action="Details" asp-route-id=3>
+                    <a asp-action="Details" asp-route-id=3 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">ASTON MARTIN- REDBULL RACING</div>
@@ -71,10 +85,10 @@
                         <div>
                             <img src="~/img/CarRedbull.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
                 <div id="a3">
-                    <a asp-action="Details" asp-route-id=4>
+                    <a asp-action="Details" asp-route-id=4 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">MC LAREN F1 TEAM</div>
@@ -85,12 +99,12 @@
                         <div>
                             <img src="~/img/CarMclaren.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
             </div>
             <div id="takimrow">
                 <div id="a4">
-                    <a asp-action="Details" asp-route-id=5>
+                    <a asp-action="Details" asp-route-id=5 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">RENAULT </div>
@@ -101,11 +115,11 @@
                         <div>
                             <img src="~/img/CarRenault.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
 
                 <div id="a5">
-                    <a asp-action="Details" asp-route-id=6>
+                    <a asp-action="Details" asp-route-id=6 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">RACING POINT</div>
@@ -116,12 +130,12 @@
                         <div>
                             <img src="~/img/CarRacingPoint.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
             </div>
             <div id="takimrow">
                 <div id="a6">
-                    <a asp-action="Details" asp-route-id=7>
+                    <a asp-action="Details" asp-route-id=7 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">ALFA ROMEO</div>
@@ -132,10 +146,10 @@
                         <div>
                             <img src="~/img/CarAlfaRomeo.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
                 <div id="a7">
-                    <a asp-action="Details" asp-route-id=8>
+                    <a asp-action="Details" asp-route-id=8 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">HAAS</div>
@@ -146,12 +160,12 @@
                         <div>
                             <img src="~/img/CarHaas.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
             </div>
             <div id="takimrow">
                 <div id="a8">
-                    <a asp-action="Details" asp-route-id=9>
+                    <a asp-action="Details" asp-route-id=9 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">ALPHA TAURI</div>
@@ -162,10 +176,10 @@
                         <div>
                             <img src="~/img/CarAlphaTauri.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
                 <div id="a9">
-                    <a asp-action="Details" asp-route-id=10>
+                    <a asp-action="Details" asp-route-id=10 style="color:black;">
                         <div id="ic">
                             <div>
                                 <div id="takimsol">WILLIAMS</div>
@@ -176,7 +190,7 @@
                         <div>
                             <img src="~/img/CarWilliams.png" id="car" class="responsive" />
                         </div>
-                        </a>
+                    </a>
                 </div>
             </div>
             <div id="alt">

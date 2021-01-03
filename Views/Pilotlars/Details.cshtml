@@ -1,7 +1,18 @@
 ﻿@model WebProje.Models.Pilotlar
 
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-    ViewData["Title"] = "Details";
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,26 +21,30 @@
 
 <body id="details">
     <div id="govdeTakim">
+        <form id="cultureForm" asp-action="Details">
+            <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+            </select>
+        </form>
         <div class="container">
             <br />
             <div id="c1">
                 <dl class="row">
                     <dt class="col-sm-4">
-                        AD
-                       
+                        @Localizer["AD"]
+
 
 
                     </dt>
 
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.Ad)
-                       
+
 
 
                     </dd>
                     <dt class="col-sm-4">
-                        SOYAD
-                        
+                        @Localizer["SOYAD"]
+
 
 
                     </dt>
@@ -40,7 +55,7 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        YAŞ
+                        @Localizer["YAŞ"]
 
 
 
@@ -52,19 +67,19 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        TAKIM
+                        @Localizer["TAKIM"]
 
 
 
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.Takim)
-                        
+
 
 
                     </dd>
                     <dt class="col-sm-4">
-                        YARIŞ SAYISI
+                        @Localizer["YARIŞ SAYISI"]
 
 
                     </dt>
@@ -74,7 +89,7 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        YARIŞ GALİBİYETİ
+                        @Localizer["YARIŞ GALİBİYETİ"]
 
 
 
@@ -85,7 +100,7 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        PODYUM SAYISI
+                        @Localizer["PODYUM SAYISI"]
 
 
                     </dt>
@@ -95,7 +110,7 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        POLE SAYISI
+                        @Localizer["POLE POZİSYONU SAYISI"]
 
 
                     </dt>
@@ -105,7 +120,7 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        EN HIZLI TUR SAYISI
+                        @Localizer["EN HIZLI TUR SAYISI"]
 
 
                     </dt>
@@ -115,33 +130,59 @@
 
                     </dd>
                     <dt class="col-sm-4">
-                        DOĞUM YERİ
+                        @Localizer["DOĞUM YERİ"]
 
 
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.DogumYeri)
+                        @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                        {
+                            @Html.DisplayFor(model => model.DogumYeriEng)
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.DogumYeri)
+                        }
+
 
 
                     </dd>
 
                     <dt class="col-sm-4">
-                        ÜLKE
+                        @Localizer["ÜLKE"]
 
 
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Ulke)
+                        @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                        {
+                            @Html.DisplayFor(model => model.UlkeEng)
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Ulke)
+                        }
 
 
                     </dd>
                     <dt class="col-sm-4">
-                        BİYOGRAFİ
+                        @Localizer["BİYOGRAFİ"]
 
 
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Biyografi)
+
+                        @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                        {
+                            @Html.DisplayFor(model => model.BiyografiEng)
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Biyografi)
+                        }
 
 
                     </dd>
@@ -944,5 +985,5 @@
         </div>
         <br /><br /> <br /><br /> <br /><br />
     </div>
-   
+
 </body>

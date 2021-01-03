@@ -1,7 +1,18 @@
 ﻿@model WebProje.Models.Takimlar
 
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-    
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <!DOCTYPE html>
@@ -10,13 +21,17 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-   
+
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link href="~/css/pilotlar.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
 
 </head>
 <body id="details">
+    <form id="cultureForm" asp-action="Details">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
     <div id="govdeTakim">
         <div class="container">
             <br />
@@ -63,71 +78,79 @@
                         <img src="~/img/LogoWilliams.jpg" id="logoSol" class="responsive" />
                     }
                 </div>
-                
+
                 <dl class="row">
                     <dt class="col-sm-4">
-                        Takım Adı:
+                        @Localizer["Takım Adı"] :
                     </dt>
-                    
+
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.TakimAdi)
                     </dd>
                     <dt class="col-sm-4">
-                        Takım Merkezi:
+                        @Localizer["Takım Merkezi"]:
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.TakimMerkezi)
+                        @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                        {
+                            @Html.DisplayFor(model => model.MerkezEng)
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.TakimMerkezi)
+                        }
                     </dd>
                     <dt class="col-sm-4">
-                        Takım Patronu:
+                        @Localizer["Takım Patronu"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.TakimPatronu)
                     </dd>
                     <dt class="col-sm-4">
-                        Teknik Şef:
+                        @Localizer["Teknik Şef"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.TeknikSef)
                     </dd>
                     <dt class="col-sm-4">
-                        Şasi:
+                        @Localizer["Şasi"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.Sasi)
                     </dd>
                     <dt class="col-sm-4">
-                        Güç Ünitesi:
+                        @Localizer["Güç Ünitesi"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.GucUnitesi)
                     </dd>
                     <dt class="col-sm-4">
-                        Kuruluş Tarihi:
+                        @Localizer["Kuruluş Tarihi"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.KurulusTarihi)
                     </dd>
                     <dt class="col-sm-4">
-                        Dünya Şampiyonlukları:
+                        @Localizer["Dünya Şampiyonlukları"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.DunyaSampiyonluklari)
                     </dd>
                     <dt class="col-sm-4">
-                        En İyi Sonuç:
+                        @Localizer["En İyi Sonuç"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.EnIyiSonuc)
                     </dd>
                     <dt class="col-sm-4">
-                        Pole Pozisyonu:
+                        @Localizer["Pole Pozisyonu"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.PolePozisyonu)
                     </dd>
                     <dt class="col-sm-4">
-                        En Hızlı Tur:
+                        @Localizer["En Hızlı Tur"]:
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.EnHizliTur)
@@ -139,7 +162,9 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>
+                                @Localizer["PİLOTLAR"]
+                            </h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -157,7 +182,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Toto.jpg" id="tm" class="responsive" /><br />
@@ -168,7 +193,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -186,7 +211,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Binotto.jpg" id="tm" class="responsive" /><br />
@@ -197,7 +222,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -215,7 +240,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Horner.jpg" id="tm" class="responsive" /><br />
@@ -226,7 +251,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -244,7 +269,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Seidl.jpg" id="tm" class="responsive" /><br />
@@ -255,7 +280,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -273,7 +298,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Cyril.jpg" id="tm" class="responsive" /><br />
@@ -284,7 +309,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -302,7 +327,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Szaufner.jpg" id="tm" class="responsive" /><br />
@@ -313,7 +338,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -331,7 +356,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Vasseur.jpg" id="tm" class="responsive" /><br />
@@ -342,7 +367,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -360,7 +385,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Steiner.jpg" id="tm" class="responsive" /><br />
@@ -371,7 +396,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -389,7 +414,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Tost.jpg" id="tm" class="responsive" /><br />
@@ -400,7 +425,7 @@
                 {
                     <div id="sagTakim">
                         <div id="sagust">
-                            <h2>PİLOTLAR</h2>
+                            <h2>@Localizer["PİLOTLAR"]</h2>
                         </div>
                         <div id="sagalt">
                             <div id="sagicsol">
@@ -418,7 +443,7 @@
                     </div>
                     <div id="sag2alt">
                         <div id="sagust">
-                            <h2>TAKIM PATRONU</h2>
+                            <h2>@Localizer["TAKIM PATRONU"]</h2>
                         </div>
                         <br />
                         <img src="~/img/Roberts.jpg" id="tm" class="responsive" /><br />
@@ -428,6 +453,7 @@
 
 
             </div>
-        </div></div>
+        </div>
+    </div>
 </body>
 </html>

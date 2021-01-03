@@ -1,7 +1,18 @@
 ﻿@model IEnumerable<WebProje.Models.Haberler>
 
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-    
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <!DOCTYPE html>
@@ -19,11 +30,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
     <link href="~/css/pilotlar.css" rel="stylesheet" />
-
-
+   
+    
 </head>
 <body>
+    <form id="cultureForm" asp-action="Index">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
     <div id="govdeTakim">
+
         <div id="habersol">
             <div id="demo" class="carousel slide" data-ride="carousel">
                 <ul class="carousel-indicators">
@@ -44,7 +60,16 @@
                                     if (item.Id == 1)
                                     {
                                         <a asp-route-id=1 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {
+                                                @Html.DisplayFor(modelItem => item.BaslikEng)
+
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayFor(modelItem => item.Baslik)
+                                            }
+                                        </a>
                                     }
 
                                 }
@@ -61,12 +86,18 @@
                                     if (item.Id == 2)
                                     {
                                         <a asp-route-id=2 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Baslik)
+                                        }
+                                        </a>
                                     }
 
                                 }
                             </h3>
-                            
+
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -78,12 +109,18 @@
                                     if (item.Id == 3)
                                     {
                                         <a asp-route-id=3 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Baslik)
+                                        }
+                                        </a>
                                     }
 
                                 }
                             </h3>
-                            
+
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -95,12 +132,18 @@
                                     if (item.Id == 4)
                                     {
                                         <a asp-route-id=4 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Baslik)
+                                        }
+                                        </a>
                                     }
 
                                 }
                             </h3>
-                            
+
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -112,12 +155,18 @@
                                     if (item.Id == 5)
                                     {
                                         <a asp-route-id=5 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Baslik)
+                                        }
+                                        </a>
                                     }
 
                                 }
                             </h3>
-                            
+
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -129,12 +178,19 @@
                                     if (item.Id == 6)
                                     {
                                         <a asp-route-id=6 asp-controller="Haberlers" asp-action="Details" style="color:white;">
-                                        @Html.DisplayFor(modelItem => item.Baslik)</a>
+                                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.Baslik)
+                                        }
+
+                                        </a>
                                     }
 
                                 }
                             </h3>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -146,50 +202,93 @@
                 </a>
             </div>
         </div>
-      
+
 
         <div id="habersag">
             <div id="habersagust">
-                <h3>TÜM HABERLER</h3>
+                <h3>@Localizer["TÜM HABERLER"]</h3>
 
             </div>
 
             @foreach (var item in Model)
             {
-                
-               
+
+
 
                 <div id="habersag1">
                     @if (item.Id == 1)
-                {
-                    <a asp-route-id=1 asp-controller="Haberlers" asp-action="Details" style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                @if (item.Id == 2)
-                {
-                <a asp-route-id=2 asp-controller="Haberlers" asp-action="Details"style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                @if (item.Id == 3)
-                {
-                <a asp-route-id=3 asp-controller="Haberlers" asp-action="Details"style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                @if (item.Id == 4)
-                {
-                <a asp-route-id=4 asp-controller="Haberlers" asp-action="Details"style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                @if (item.Id == 5)
-                {
-                <a asp-route-id=5 asp-controller="Haberlers" asp-action="Details"style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                @if (item.Id == 6)
-                {
-                <a asp-route-id=6 asp-controller="Haberlers" asp-action="Details"style="color:black;">@Html.DisplayFor(modelItem => item.Baslik)</a>
-                }
-                    
+                    {
+                        <a asp-route-id=1 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+                    @if (item.Id == 2)
+                    {
+                        <a asp-route-id=2 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+                    @if (item.Id == 3)
+                    {
+                        <a asp-route-id=3 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+                    @if (item.Id == 4)
+                    {
+                        <a asp-route-id=4 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+                    @if (item.Id == 5)
+                    {
+                        <a asp-route-id=5 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+                    @if (item.Id == 6)
+                    {
+                        <a asp-route-id=6 asp-controller="Haberlers" asp-action="Details" style="color:black;">
+                            @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                            {@Html.DisplayFor(modelItem => item.BaslikEng)}
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        }
+                        </a>
+                    }
+
 
                 </div>
             }
         </div>
-       
+
     </div>
 
 </body>

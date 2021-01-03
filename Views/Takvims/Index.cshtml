@@ -1,7 +1,17 @@
 ﻿@model IEnumerable<WebProje.Models.Takvim>
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-    
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <!DOCTYPE html>
@@ -11,21 +21,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
 
     <link href="~/css/pilotlar.css" rel="stylesheet" />
 
-    <script>
-        $(document).ready(function () {
-            $("#flip").click(function () {
-                $("#panel").slideToggle("slow");
-            });
-        });
-    </script>
-</head>
-<body>
 
-    
+</head>
+<body id="details">
+    <form id="cultureForm" asp-action="Index">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
+
 
 
 
@@ -34,185 +43,181 @@
 
     <div id="govdeTakim">
         <div id="b0">
-            <h1>2020 FORMULA 1 TAKVİMİ</h1>
+            <h1>@Localizer["2020 FORMULA 1 TAKVİMİ"]</h1>
         </div>
         <br /><br /><br /><br /><br /><br />
         <div class="container">
             <br />
             <div id="takvim">
 
-                @*<div class="panel">
-                </div>
-
-                <a href="javascript:void(0);" class="slider-arrow show">&raquo;</a>*@
 
                 @foreach (var item in Model)
                 {
-                <div id="takvimust">
-                    <div id="takvimsol">
-                        <div id="takvimsolic">
-                            @if (item.Ulke == "AVUSTURYA")
-                            {
-                                <img src="~/img/Austria.png" class="responsive" id="bayrak" />
+                    <div id="takvimust">
+                        <div id="takvimsol">
+                            <div id="takvimsolic">
+                                @if (item.Ulke == "AVUSTURYA")
+                                {
+                                    <img src="~/img/Austria.png" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "MACARİSTAN")
-                            {<img src="~/img/Macaristan.png" class="responsive" id="bayrak" />
-                            }
-                            @if (item.Ulke == "İNGİLTERE")
-                            {<img src="~/img/England.jpg" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "MACARİSTAN")
+                                {<img src="~/img/Macaristan.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "İNGİLTERE")
+                                {<img src="~/img/England.jpg" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "İSPANYA")
-                            {<img src="~/img/Spain.jpg" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "İSPANYA")
+                                {<img src="~/img/Spain.jpg" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "BELÇİKA")
-                            {<img src="~/img/Belçika.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "BELÇİKA")
+                                {<img src="~/img/Belçika.png" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "İTALYA")
-                            {<img src="~/img/Italy.jpg" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "İTALYA")
+                                {<img src="~/img/Italy.jpg" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "RUSYA")
-                            {<img src="~/img/Russia.jpg" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "RUSYA")
+                                {<img src="~/img/Russia.jpg" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "ALMANYA")
-                            {<img src="~/img/Germany.jpg" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "ALMANYA")
+                                {<img src="~/img/Germany.jpg" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "PORTEKİZ")
-                            {<img src="~/img/Portekiz.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "PORTEKİZ")
+                                {<img src="~/img/Portekiz.png" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "TÜRKİYE")
-                            {<img src="~/img/Türkiye.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "TÜRKİYE")
+                                {<img src="~/img/Türkiye.png" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "BAHREYN")
-                            {<img src="~/img/Bahreyn.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "BAHREYN")
+                                {<img src="~/img/Bahreyn.png" class="responsive" id="bayrak" />
 
-                            }
-                            @if (item.Ulke == "ABU DHABI")
-                            {<img src="~/img/AbuDhabi.png" class="responsive" id="bayrak" />
+                                }
+                                @if (item.Ulke == "ABU DHABI")
+                                {<img src="~/img/AbuDhabi.png" class="responsive" id="bayrak" />
 
-                            }
-                        </div>
-                        <div id="takvimsagic">
-                            <div id="takvimsagic1">
-                                <h5><b> @Html.DisplayFor(modelItem => item.YarisAdi)</b> </h5>
-                                <p> @Html.DisplayFor(modelItem => item.PistAdi)</p>
+                                }
                             </div>
-                            <div id="takvimsagic2">
-                                <p> @Html.DisplayFor(modelItem => item.Tarih)</p>
+                            <div id="takvimsagic">
+                                <div id="takvimsagic1">
+                                    <h5><b> @Html.DisplayFor(modelItem => item.YarisAdi)</b> </h5>
+                                    <p> @Html.DisplayFor(modelItem => item.PistAdi)</p>
+                                </div>
+                                <div id="takvimsagic2">
+                                    <p> @Html.DisplayFor(modelItem => item.Tarih)</p>
+                                </div>
+
                             </div>
 
                         </div>
+                        <div id="takvimsag">
+                            <div id="flip">@Localizer["Sonuçları Görüntüle"]</div>
+                            <div id="panel">
 
+                                <dl class="row">
+
+                                    <dd class="col-sm-12">
+                                        <h6>1- @Html.DisplayFor(modelItem => item.Birinci)</h6> <hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>2- @Html.DisplayFor(modelItem => item.Ikinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>3- @Html.DisplayFor(modelItem => item.Ucuncu)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>4- @Html.DisplayFor(modelItem => item.Dorduncu)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>5- @Html.DisplayFor(modelItem => item.Besinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>6- @Html.DisplayFor(modelItem => item.Altinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>7- @Html.DisplayFor(modelItem => item.Yedinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>8- @Html.DisplayFor(modelItem => item.Sekizinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>9- @Html.DisplayFor(modelItem => item.Dokuzuncu)</h6><hr />
+                                    </dd>
+
+
+                                    <dd class="col-sm-12">
+                                        <h6>10- @Html.DisplayFor(modelItem => item.Onuncu)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>11- @Html.DisplayFor(modelItem => item.OnBirinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>12- @Html.DisplayFor(modelItem => item.OnIkinci)</h6><hr />
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>13- @Html.DisplayFor(modelItem => item.OnUcuncu)</h6><hr />
+                                    </dd>
+
+
+
+                                    <dd class="col-sm-12">
+                                        <h6>14- @Html.DisplayFor(modelItem => item.OnDorduncu)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>15- @Html.DisplayFor(modelItem => item.OnBesinci)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>16- @Html.DisplayFor(modelItem => item.OnAltinci)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>17- @Html.DisplayFor(modelItem => item.OnYedinci)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>18- @Html.DisplayFor(modelItem => item.OnSekizinci)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6>19- @Html.DisplayFor(modelItem => item.OnDokuzuncu)</h6><hr />
+
+                                    </dd>
+
+                                    <dd class="col-sm-12">
+                                        <h6> 20 - @Html.DisplayFor(modelItem => item.Yirminci)</h6><hr />
+
+                                    </dd>
+
+                                </dl>
+                            </div>
+                        </div>
                     </div>
-                    <div id="takvimsag">
-                        <div id="flip">Sonuçları Görüntüle</div>
-                        <div id="panel">
-                           
-                            <dl class="row">
-
-                             <dd class="col-sm-12">
-                                    <h6>1- @Html.DisplayFor(modelItem => item.Birinci)</h6> <hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>2- @Html.DisplayFor(modelItem => item.Ikinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>3- @Html.DisplayFor(modelItem => item.Ucuncu)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>4- @Html.DisplayFor(modelItem => item.Dorduncu)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>5- @Html.DisplayFor(modelItem => item.Besinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>6- @Html.DisplayFor(modelItem => item.Altinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>7- @Html.DisplayFor(modelItem => item.Yedinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>8- @Html.DisplayFor(modelItem => item.Sekizinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>9- @Html.DisplayFor(modelItem => item.Dokuzuncu)</h6><hr />
-                                </dd>
-
-
-                                <dd class="col-sm-12">
-                                    <h6>10- @Html.DisplayFor(modelItem => item.Onuncu)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>11- @Html.DisplayFor(modelItem => item.OnBirinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>12- @Html.DisplayFor(modelItem => item.OnIkinci)</h6><hr />
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>13- @Html.DisplayFor(modelItem => item.OnUcuncu)</h6><hr />
-                                </dd>
-
-
-
-                                <dd class="col-sm-12">
-                                    <h6>14- @Html.DisplayFor(modelItem => item.OnDorduncu)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>15- @Html.DisplayFor(modelItem => item.OnBesinci)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>16- @Html.DisplayFor(modelItem => item.OnAltinci)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>17- @Html.DisplayFor(modelItem => item.OnYedinci)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>18- @Html.DisplayFor(modelItem => item.OnSekizinci)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6>19- @Html.DisplayFor(modelItem => item.OnDokuzuncu)</h6><hr />
-
-                                </dd>
-
-                                <dd class="col-sm-12">
-                                    <h6> 20 - @Html.DisplayFor(modelItem => item.Yirminci)</h6><hr />
-
-                                </dd>
-
-                            </dl>
-                        </div>
-                    </div> 
-                </div>
                     @**@
 
                 }
@@ -221,5 +226,14 @@
 
         </div>
     </div>
+
 </body>
+
 </html>
+<script>
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideToggle("slow");
+        });
+    });
+</script>

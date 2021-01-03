@@ -1,7 +1,17 @@
 ﻿@model WebProje.Models.Tarihce
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <!DOCTYPE html>
@@ -16,23 +26,42 @@
 </head>
 
 <body id="details">
+    <form id="cultureForm" asp-action="Details">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
     <div id="govdeTakim">
         <div class="container">
             <br />
             <div id="c1">
                 <div id="tarihsolust">
-                    <div id="tarihsolic"><h1>TARİHÇE</h1></div>
+                    <div id="tarihsolic">
+                        <h1>@Localizer["TARİHÇE"]</h1>
+
+
+
+                    </div>
                     <div id="tarihsagic"><img src="~/img/F1Logo.jpg" class="responsive" id="tarihce" /></div>
                 </div>
-                
-               
+
+
                 <dl class="row">
-                    
-                   
+
+
 
                     <dd class="col-sm-12">
                         <br /><br />
-                        @Html.DisplayFor(model => model.Tarihce1)
+
+                        @if (requestCulture.RequestCulture.Culture.ToString() == "en-US")
+                        {
+                            @Html.DisplayFor(model => model.TarihceEng)
+
+
+
+
+                        }
+                        else {@Html.DisplayFor(model => model.Tarihce1)
+                        }
 
 
 
@@ -52,7 +81,7 @@
                 <div id="fototarih"><img src="~/img/Tarih10.jpg" class="responsive" id="tarihfoto" /></div>
                 <div id="fototarih"><img src="~/img/Tarih11.jpg" class="responsive" id="tarihfoto" /></div>
                 <div id="fototarih"><img src="~/img/Tarih12.jpg" class="responsive" id="tarihfoto" /></div>
-                
+
             </div>
         </div>
     </div>

@@ -1,7 +1,18 @@
 ﻿@model IEnumerable<WebProje.Models.PuanDurumu>
 
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
 @{
-    
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
 }
 
 <!DOCTYPE html>
@@ -14,16 +25,20 @@
     <meta name="viewport" content="width=device-width" />
 </head>
 <body id="details">
+    <form id="cultureForm" asp-action="Index">
+        <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+        </select>
+    </form>
     <div id="govde">
         <div class="container">
             <br />
             <div id="puansol">
                 <div id="tarihsolust">
-                    <div id="puanpuansolic"><h2>PİLOTLAR SIRALAMASI</h2></div>
-                    
+                    <div id="puanpuansolic"><h2>@Localizer["PİLOTLAR SIRALAMASI"]</h2></div>
+
                 </div>
                 <table class="table">
-                    
+
                     <tbody>
                         @foreach (var item in Model)
                         {
@@ -37,118 +52,131 @@
                                             @if (item.Pilot == "Lewis HAMILTON")
                                             {
                                                 <a asp-route-id=1 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Hamilton.png" class="responsive" id="puanfoto" />
-                                                 </a>
+                                                    <img src="~/img/Hamilton.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Valtteri BOTTAS")
                                             {
                                                 <a asp-route-id=2 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Bottas.png" class="responsive" id="puanfoto" />
+                                                    <img src="~/img/Bottas.png" class="responsive" id="puanfoto" />
                                                 </a>
                                             }
                                             @if (item.Pilot == "Charles LECLERC")
                                             {
                                                 <a asp-route-id=3 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Leclerc.png" class="responsive" id="puanfoto" />
+                                                    <img src="~/img/Leclerc.png" class="responsive" id="puanfoto" />
                                                 </a>
                                             }
                                             @if (item.Pilot == "Sebastian VETTEL")
                                             {
                                                 <a asp-route-id=4 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Vettel.png" class="responsive" id="puanfoto" />
+                                                    <img src="~/img/Vettel.png" class="responsive" id="puanfoto" />
                                                 </a>
                                             }
                                             @if (item.Pilot == "Max VERSTAPPEN")
                                             {
                                                 <a asp-route-id=5 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Verstappen.png" class="responsive" id="puanfoto" />
+                                                    <img src="~/img/Verstappen.png" class="responsive" id="puanfoto" />
                                                 </a>
 
                                             }
                                             @if (item.Pilot == "Alexander ALBON")
                                             {
                                                 <a asp-route-id=6 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Albon.png" class="responsive" id="puanfoto" />
+                                                    <img src="~/img/Albon.png" class="responsive" id="puanfoto" />
                                                 </a>
                                             }
                                             @if (item.Pilot == "Carlos SAINZ")
                                             {
                                                 <a asp-route-id=7 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Sainz.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Sainz.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Lando NORRIS")
                                             {
                                                 <a asp-route-id=8 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Norris.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Norris.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Daniel RICCIARDO")
                                             {
                                                 <a asp-route-id=9 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Ricciardo.png" class="responsive" id="puanfoto" />
-                                                    </a>
+                                                    <img src="~/img/Ricciardo.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Esteban OCON")
                                             {
                                                 <a asp-route-id=10 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Ocon.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Ocon.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Sergio PEREZ")
                                             {
                                                 <a asp-route-id=11 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Perez.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Perez.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Lance STROLL")
                                             {
                                                 <a asp-route-id=12 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Stroll.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Stroll.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Kimi RAIKKONEN")
                                             {
                                                 <a asp-route-id=14 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Raikkonen.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Raikkonen.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Antonio GIOVINAZZI")
                                             {
                                                 <a asp-route-id=13 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Giovinazzi.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Giovinazzi.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Romain GROSJEAN")
                                             {
                                                 <a asp-route-id=16 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Grosjean.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Grosjean.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Kevin MAGNUSSEN")
                                             {
                                                 <a asp-route-id=15 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Magnussen.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Magnussen.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Pierre GASLY")
                                             {
                                                 <a asp-route-id=17 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Gasly.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Gasly.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Daniil KVYAT")
                                             {
                                                 <a asp-route-id=18 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Kvyat.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Kvyat.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "George RUSSELL")
                                             {
                                                 <a asp-route-id=19 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Russell.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Russell.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                             @if (item.Pilot == "Nicholas LATIFI")
                                             {
                                                 <a asp-route-id=20 asp-controller="Pilotlars" asp-action="Details">
-                                                <img src="~/img/Latifi.png" class="responsive" id="puanfoto" /></a>
+                                                    <img src="~/img/Latifi.png" class="responsive" id="puanfoto" />
+                                                </a>
                                             }
                                         </div>
                                         <div id="puansagic">
                                             @Html.DisplayFor(modelItem => item.Pilot)
                                         </div>
-                                                 
 
-                                        </td>
+
+                                    </td>
 
                                     <td>
                                         <div id="puansagic">
@@ -157,14 +185,14 @@
                                     </td>
 
                                 </tr>
-                                }
                             }
-                        </tbody>
+                        }
+                    </tbody>
                 </table>
             </div>
             <div id="puansag">
                 <div id="tarihsolust">
-                    <div id="puanpuansolic"><h2>TAKIMLAR SIRALAMASI</h2></div>
+                    <div id="puanpuansolic"><h2>@Localizer["TAKIMLAR SIRALAMASI"]</h2></div>
 
                 </div>
                 <table class="table">
@@ -181,55 +209,65 @@
                                             @if (item.Takim == "Mercedes AMG-PETRONAS")
                                             {
                                                 <a asp-route-id=1 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/Mercedes.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/Mercedes.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Red Bull Racing")
                                             {
                                                 <a asp-route-id=3 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/RedBull.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/RedBull.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "McLaren")
                                             {
                                                 <a asp-route-id=4 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/McLaren.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/McLaren.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Racing Point")
                                             {
                                                 <a asp-route-id=6 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/RacingPoint.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/RacingPoint.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Renault")
                                             {
                                                 <a asp-route-id=5 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/Renault.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/Renault.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Scuderia Ferrari")
                                             {
                                                 <a asp-route-id=2 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/Ferrari.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/Ferrari.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "AlphaTauri")
                                             {
                                                 <a asp-route-id=9 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/AlphaTauri.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/AlphaTauri.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Alfa Romeo Racing")
                                             {
                                                 <a asp-route-id=7 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/AlfaRomeo.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/AlfaRomeo.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Haas F1 Team")
                                             {
                                                 <a asp-route-id=8 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/Haas.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/Haas.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
                                             @if (item.Takim == "Williams")
                                             {
                                                 <a asp-route-id=10 asp-controller="Takimlars" asp-action="Details">
-                                                <img src="~/img/Williams.png" class="responsive" id="puanfotologo" /></a>
+                                                    <img src="~/img/Williams.png" class="responsive" id="puanfotologo" />
+                                                </a>
                                             }
-                                            </div>
-                                            @Html.DisplayFor(modelItem => item.Takim)
+                                        </div>
+                                        @Html.DisplayFor(modelItem => item.Takim)
 
                                     </td>
 
@@ -238,9 +276,9 @@
                                     </td>
 
                                 </tr>
-                                }
                             }
-                        </tbody>
+                        }
+                    </tbody>
                 </table>
             </div>
         </div>
