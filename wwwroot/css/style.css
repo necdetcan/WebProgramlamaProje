@@ -11,12 +11,12 @@ body {
 
 
 .navbar {
-    background-color: red;
+    background-color: #FF0000;
 }
 
 .nav-item {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
 }
@@ -42,9 +42,7 @@ html {
     border-color: gray;
 }
 
-#navdiv {
-    padding-left: 150px;
-}
+
 #footer{
     
     float:left;
