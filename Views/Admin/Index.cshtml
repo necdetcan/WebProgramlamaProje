@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@inject IOptions<RequestLocalizationOptions> Locoptions
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = Locoptions.Value.SupportedCultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+<link href="~/css/pilotlar.css" rel="stylesheet" />
+
+<body id="details">
+    <div id="govdeTakim">
+        <form id="cultureForm" asp-action="Index">
+            <select name="culture" onchange="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">
+            </select>
+        </form>
+        <div class="container">
+            <br />
+
+            <div id="c1">
+                <div id="b0">
+                    <h1>@Localizer["ADMİN PANELİNE HOŞGELDİNİZ"]</h1>
+                </div>
+                <h3>@Localizer["İŞLEMLER"]</h3><br /><br />
+                <div id="c1">
+                    <a asp-controller="Haberlers" asp-action="Create" style="color:black;"><h3>@Localizer["HABER EKLE"]</h3></a><hr /><br />
+                    <a  asp-controller="Pilotlars" asp-action="Create" style="color:black;"><h3>@Localizer["PİLOT EKLE"]</h3></a><hr /><br />
+                    <a  asp-controller="Takimlars" asp-action="Create" style="color:black;"><h3>@Localizer["TAKIM EKLE"]</h3></a><hr /><br />
+                   
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</body>
