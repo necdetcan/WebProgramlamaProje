@@ -50,7 +50,7 @@
             <br />
             <div id="takvim">
 
-
+                @{int i = 1;}
                 @foreach (var item in Model)
                 {
                     <div id="takvimust">
@@ -119,7 +119,7 @@
                         </div>
                         <div id="takvimsag">
                             <div id="flip">@Localizer["Sonuçları Görüntüle"]</div>
-                            <div id="panel">
+                            <div id=@i.ToString()>
 
                                 <dl class="row">
 
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    @**@
+                    i++ ;
 
                 }
 
@@ -226,14 +226,61 @@
 
         </div>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#1").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#2").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#3").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#4").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#5").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#6").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#7").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#8").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#9").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#10").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#11").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#12").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#13").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#14").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#15").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#16").slideToggle("slow");
+            });
+            $("#flip").click(function () {
+                $("#17").slideToggle("slow");
+            });
+        });
+    </script>
 </body>
 
 </html>
-<script>
-    $(document).ready(function () {
-        $("#flip").click(function () {
-            $("#panel").slideToggle("slow");
-        });
-    });
-</script>
