@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebProje.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Http;
 
 namespace WebProje.Controllers
 {
@@ -23,7 +27,18 @@ namespace WebProje.Controllers
         {
             return View(await _context.Haberler.ToListAsync());
         }
+        [HttpPost]
+        public IActionResult Index(string culture)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
 
+
+                );
+            return RedirectToAction("Index");
+        }
         // GET: Haberlers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -41,7 +56,18 @@ namespace WebProje.Controllers
 
             return View(haberler);
         }
+        [HttpPost]
+        public IActionResult Details(string culture)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
 
+
+                );
+            return RedirectToAction("Details");
+        }
         // GET: Haberlers/Create
         public IActionResult Create()
         {
