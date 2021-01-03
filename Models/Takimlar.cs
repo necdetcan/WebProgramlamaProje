@@ -17,5 +17,6 @@ namespace WebProje.Models
         public string EnIyiSonuc { get; set; }
         public int? PolePozisyonu { get; set; }
         public int? EnHizliTur { get; set; }
+        public string MerkezEng { get; set; }
     }
 }

@@ -158,7 +158,7 @@ namespace WebProje.Models
                     .HasColumnName("HaberTR")
                     .HasColumnType("text");
 
-                entity.Property(e => e.Tarih).HasColumnType("datetime");
+                entity.Property(e => e.Tarih).HasColumnType("date");
             });
 
             modelBuilder.Entity<Pilotlar>(entity =>
@@ -173,8 +173,17 @@ namespace WebProje.Models
 
                 entity.Property(e => e.Biyografi).HasColumnType("text");
 
+                entity.Property(e => e.BiyografiEng)
+                    .HasColumnName("BiyografiENG")
+                    .HasColumnType("text");
+
                 entity.Property(e => e.DogumYeri)
                     .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DogumYeriEng)
+                    .HasColumnName("DogumYeriENG")
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Soyad)
@@ -187,6 +196,11 @@ namespace WebProje.Models
 
                 entity.Property(e => e.Ulke)
                     .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UlkeEng)
+                    .HasColumnName("UlkeENG")
+                    .HasMaxLength(255)
                     .IsUnicode(false);
             });
 
@@ -221,6 +235,11 @@ namespace WebProje.Models
 
                 entity.Property(e => e.KurulusTarihi)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MerkezEng)
+                    .HasColumnName("MerkezENG")
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Sasi)

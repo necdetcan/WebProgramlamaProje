@@ -9,11 +9,5 @@ namespace WebProje.Models
         public string Takim { get; set; }
         public string Pilot { get; set; }
         public int? Puan { get; set; }
-
-
-
-
-
-
     }
 }

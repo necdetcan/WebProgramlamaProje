@@ -19,5 +19,8 @@ namespace WebProje.Models
         public int? Pole { get; set; }
         public string Ulke { get; set; }
         public int? YarisSayisi { get; set; }
+        public string DogumYeriEng { get; set; }
+        public string UlkeEng { get; set; }
+        public string BiyografiEng { get; set; }
     }
 }
