@@ -11,4 +11,4 @@ Merhaba ben Necdet Can ÖZBEK. Web Programlama dersimiz için bizden bir web sit
 • HTML5, CSS3, Javascript ve JQUERY
 
 
-![deneme](https://github.com/necdetcan/WebProgramlamaProje/main/1.png?raw=true)
+![deneme](https://github.com/necdetcan/WebProgramlamaProje/blob/main/1.png?raw=true)
