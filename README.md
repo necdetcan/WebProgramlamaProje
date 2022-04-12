@@ -9,3 +9,6 @@ Merhaba ben Necdet Can ÖZBEK. Web Programlama dersimiz için bizden bir web sit
 • Entity Framework Core ORM
  • Bootstrap Tema 
 • HTML5, CSS3, Javascript ve JQUERY
+
+
+![deneme](https://github.com/necdetcan/WebProgramlamaProje/Ekran Görüntüleri - SCREENSHOTS/142068222_683215535682136_3388530574127505941_n.png?raw=true)
