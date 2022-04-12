@@ -1,14 +1,6 @@
-WEB PROGRAMLAMA DERSİ PROJE ÖDEVİ
-FORMULA 1 TANITIMI VE FORMULA 1 HAKKINDA GÜNCEL HABERLER İÇEREN WEB SİTESİ TASARIMI
+WEB PROGRAMMING CLASS PROJECT WEB SITE DESIGN WITH INTRODUCTION TO FORMULA 1 AND CURRENT NEWS ABOUT FORMULA 1
 
-Merhaba ben Necdet Can ÖZBEK. Web Programlama dersimiz için bizden bir web sitesi tasarlamamız istendi. Ben de Formula 1 sporuna ilgi duyduğum için tasarlayacağım web sitesinin konseptini Formula 1 olarak belirledim. Tasarlayacağım web sitesinde insanları Formula 1 hakkında bilgilendirmeyi, bunun yanında Formula 1’e dair güncel haberleri paylaşmayı ve sitenin kullanıcılarının bu haberlere yorum yapabilmesini amaçladım. Tasarlayacağım web sitesinde bir admin paneli oluşturup bu yetkiye sahip olan kullanıcıların çeşitli işlemler yapabilmesini amaçladım. Başlangıç olarak admin olan kullanıcıların siteye haber eklemesini, mevcut haberlerde düzenleme yapmasını, kullanıcı eklemesini, kullanıcının siteye girişini engellemesini yapmasını düşündüm. Bunun yanında tasarlayacağım web sitesine kullanıcıların üye olabilmesini ve kendilerine özel profil sayfalarının olmasını amaçladım. Tasarlayacağım bu web sitesinde Formula 1 sporuna ilgi duyan insanların vakit geçirmesini amaçladım ve çalışmalarımı bu doğrultuda yapmayı düşündüm. Kısaca özetlemek gerekirse yapmayı düşündüğüm bu web sitesinin biraz haber biraz forum sitesi konseptinde olmasını planladım. 
--Projede Kullanacağım Teknolojiler
-• Asp.net Core 3.1 Razor Pages 
-• C# 
-• Veritabanı olarak SQL Server /PostgreSQL/ vb 
-• Entity Framework Core ORM
- • Bootstrap Tema 
-• HTML5, CSS3, Javascript ve JQUERY
+Hello, I am Necdet Can ÖZBEK. We were asked to design a website for our Web Programming class. Since I am interested in Formula 1 sport, I have determined the concept of the website I will design as Formula 1. On the website I will design, I aimed to inform people about Formula 1, as well as to share current news about Formula 1 and for the users of the site to comment on these news. I aimed to create an admin panel on the website I will design so that users with this authority can perform various actions. To begin with, I thought that users who are admins can add news to the site, edit existing news, add users, and prevent the user from accessing the site. In addition, I aimed to enable users to become members of the website I will design and to have their own profile pages. On this website that I will design, I aimed for people who are interested in Formula 1 to spend time, and I thought of doing my work in this direction. To summarize briefly, I planned that this website, which I am planning to build, should be in the concept of a news and a forum site. -Technologies I Will Use in the Project • Asp.net Core 3.1 Razor Pages • C# • SQL Server as Database /PostgreSQL/ etc. • Entity Framework Core ORM • Bootstrap Theme • HTML5, CSS3, Javascript and JQUERY
 
 
 ![](https://github.com/necdetcan/WebProgramlamaProje/blob/main/1.png?raw=true)
